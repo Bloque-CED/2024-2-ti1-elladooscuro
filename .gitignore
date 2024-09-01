@@ -1,0 +1,51 @@
+# Archivos generados por IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+target/
+
+# Archivos de configuración de Run
+*.run/
+
+# Archivos de configuración del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración del editor de texto
+*~
+*.swp
+*.swo
+
+# Directorios y archivos de SBT
+target/
+
+# Archivos de log y temporales
+logs/
+*.log
+
+# Archivos de compilación
+*.class
+
+# Archivos de paquetes
+*.jar
+*.war
+*.ear
+
+# Archivos generados por ScalaTest
+test-reports/
+
+# Directorio de metadatos de Git
+.git/
+
+# Ignorar la carpeta lib que puede contener dependencias locales
+lib/
+
+# Archivos de sistema de MacOS
+.DS_Store
+
+# Archivos de sistema de Windows
+Thumbs.db
+
+# Archivos de configuración de otros editores
+.vscode/
