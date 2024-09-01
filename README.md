@@ -2,11 +2,11 @@
 
 Los algoritmos de ordenamiento describen un proceso computacional que produce una salida a partir de una entrada especificada de la siguiente manera:
 
-El problema de ordenar una secuencia de objetos es estudiado frecuentemente en los primeros cursos de programación porque permite introducir diferentes técnicas de diseño y análisis de algoritmos [1]. En esta tarea integradora, cada equipo de trabajo debe implementar los siguientes algoritmos de ordenamiento:
+El problema planteado, es resolver con recursividad usando los siguientes algoritmos
 
-1. **HeapSort**, de acuerdo a la descripción del capítulo 6 del texto de Cormen [1].
-2. **CountingSort**, de acuerdo a la descripción del capítulo 8 del texto de Cormen [1].
-3. **RadixSort**, de acuerdo a la descripción del capítulo 8 del texto de Cormen [1].
+1. **HeapSort**, de acuerdo a la descripción del capítulo 6 del texto de Cormen.
+2. **CountingSort**, de acuerdo a la descripción del capítulo 8 del texto de Cormen.
+3. **RadixSort**, de acuerdo a la descripción del capítulo 8 del texto de Cormen.
 
 ## Ordenamiento genérico y de alto orden
 
