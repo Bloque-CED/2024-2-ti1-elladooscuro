@@ -1,63 +1,41 @@
-package co.com.u.icesi
+package co.edu.icesi.u
 
 import org.scalatest.funsuite.AnyFunSuite
 
 class CountingSortTest extends AnyFunSuite {
 
-  val counting = new CountingSort()
-
-  //CountingSort -> del cap 8 text de Cormen
-  // Test case: Normal case with unsorted List
-  test("Normal case") {
-    val a = List(4, 1, 3, 2, 16, 9, 10, 14, 8, 7)
-    val b = List(1, 2, 3, 4, 7, 8, 9, 10, 14, 16)
-
-    val result = counting.sort(a)
-    assert(result === b)
+  test("sort empty list") {
+    val countingSort = new CountingSort[Int]()
+    assert(countingSort.sort(List()) === List())
   }
 
-  // Test case: Arrangement already ordered
-  test("Arrangement already ordered") {
-    val a = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    val result = counting.sort(a)
-    assert(result === a)
+  test("sort single element list") {
+    val countingSort = new CountingSort[Int]()
+    assert(countingSort.sort(List(5)) === List(5))
   }
 
-  // Test case: Arrangement in descending order
-  test("Arrangement in descending order") {
-    val a = List(10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
-    val b = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    val result = counting.sort(a)
-    assert(result === b)
+  test("sort already sorted list") {
+    val countingSort = new CountingSort[Int]()
+    assert(countingSort.sort(List(1, 2, 3, 4, 5)) === List(1, 2, 3, 4, 5))
   }
 
-  // Test case: Arrangement with repeated elements
-  test("Arrangement with repeated elements") {
-    val a = List(4, 10, 3, 10, 2, 10, 1, 4)
-    val b = List(1, 2, 3, 4, 4, 10, 10, 10)
-    val result = counting.sort(a)
-    assert(result === b)
+  test("sort unsorted list") {
+    val countingSort = new CountingSort[Int]()
+    assert(countingSort.sort(List(4, 2, 7, 1, 9, 3)) === List(1, 2, 3, 4, 7, 9))
   }
 
-  // Test case: Single-element List
-  test("Single-element List") {
-    val a = List(5)
-    val result = counting.sort(a)
-    assert(result === a)
+  test("sort list with duplicates") {
+    val countingSort = new CountingSort[Int]()
+    assert(countingSort.sort(List(4, 2, 4, 1, 9, 2)) === List(1, 2, 2, 4, 4, 9))
   }
 
-  // Test case: Empty arrangement
-  test("Empty arrangement") {
-    val a = List[Int]()
-    val result = counting.sort(a)
-    assert(result.isEmpty)
+  test("sort negative numbers") {
+    val countingSort = new CountingSort[Int]()
+    assert(countingSort.sort(List(-5, -1, -3, 0, 2)) === List(-5, -3, -1, 0, 2))
   }
 
-  // Test case: Arrangement with all elements the same
-  test("Arrangement with all elements the same") {
-    val a = List(5, 5, 5, 5, 5, 5, 5)
-    val result = counting.sort(a)
-    assert(result === a)
+  test("sort mixed positive and negative numbers") {
+    val countingSort = new CountingSort[Int]()
+    assert(countingSort.sort(List(-10, 5, 0, -3, 2, -1)) === List(-10, -3, -1, 0, 2, 5))
   }
-  
 }

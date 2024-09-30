@@ -1,40 +1,32 @@
-package co.com.u.icesi
+package co.edu.icesi.u
 
 import org.scalatest.funsuite.AnyFunSuite
 
 class RadixSortTest extends AnyFunSuite {
 
-  val radix = new RadixSort()
+  // Instancia de RadixSort para enteros
+  val radixSort = new RadixSort[Int]
 
-  //RadixSort -> del cap 8 text de Cormen
-  test("An List of positive integers") {
-    val input = List(170, 45, 75, 90, 802, 24, 2, 66)
-    val expected = List(2, 24, 45, 66, 75, 90, 170, 802)
-    assert(radix.sort(input) === expected)
+  test("sort should return an empty list for an empty input list") {
+    assert(radixSort.sort(List()) == List())
   }
 
-  test("An List with duplicates") {
-    val input = List(170, 45, 75, 90, 802, 24, 75, 66)
-    val expected = List(24, 45, 66, 75, 75, 90, 170, 802)
-    assert(radix.sort(input) === expected)
+  test("sort should return the same list for a single element") {
+    assert(radixSort.sort(List(5)) == List(5))
   }
 
-  test("An List with a single element") {
-    val input = List(42)
-    val expected = List(42)
-    assert(radix.sort(input) === expected)
+  test("sort should return a sorted list for an already sorted list") {
+    assert(radixSort.sort(List(1, 2, 3, 4, 5)) == List(1, 2, 3, 4, 5))
   }
 
-  test("Already sorted List") {
-    val input = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
-    val expected = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
-    assert(radix.sort(input) === expected)
+  test("sort should return a sorted list for a list in reverse order") {
+    assert(radixSort.sort(List(5, 4, 3, 2, 1)) == List(1, 2, 3, 4, 5))
   }
 
-  test("An empty List") {
-    val input = List[Int]()
-    val expected = List[Int]()
-    assert(radix.sort(input) === expected)
+  test("sort should return a sorted list for a random unsorted list") {
+    assert(radixSort.sort(List(3, 1, 4, 1, 5, 9, 2, 6, 5)) == List(1, 1, 2, 3, 4, 5, 5, 6, 9))
   }
-
+  test("sort should return a sorted list for a random unsorted list +") {
+    assert(radixSort.sort(List(3, 1, 4, 1, 7, 8, 5, 9, 2, 6, 5)) == List(1, 1, 2, 3, 4, 5, 5, 6, 7, 8, 9))
+  }
 }
